@@ -10,6 +10,8 @@ import hydra
 import os
 from tqdm import tqdm
 from utils import load_text_inversion
+
+
 def inference(device, unet, vae, tokenizer, text_encoder, prompt, bboxes, phrases, cfg, logger):
 
 
@@ -130,6 +132,12 @@ def main(cfg):
     examples = {"prompt": "A hello kitty toy is playing with a purple ball.",
                 "phrases": "hello kitty; ball",
                 "bboxes": [[[0.1, 0.2, 0.5, 0.8]], [[0.75, 0.6, 0.95, 0.8]]],
+                'save_path': cfg.general.save_path
+                }
+
+    examples = {"prompt": "A rabbit wearing sunglasses looks very proud",
+                "phrases": "rabbit; sunglasses",
+                "bboxes": [[[0.130859375, 0.169921875, 0.71484375, 1.0]], [[0.12890625, 0.25390625, 0.7109375, 0.51171875]]],
                 'save_path': cfg.general.save_path
                 }
 
